@@ -10,8 +10,8 @@ a {color: #03f;}
 a:hover {color: #69f;}
 
 /* Custom text-selection colors (remove any text shadows: http://twitter.com/miketaylr/status/12228805301) */
-::-moz-selection{background: #fcd700; color: #fff; text-shadow: none;}
-::selection {background: #fcd700; color: #fff; text-shadow: none;} 
+::-moz-selection{background-color: transparent; text-shadow: none;}
+::selection {background-color: transparent; text-shadow: none;} 
 
 /*	j.mp/webkit-tap-highlight-color */
 a:link {-webkit-tap-highlight-color: #fcd700;} 
@@ -231,6 +231,7 @@ body{
 	font-size: 30px;
 	padding-top: 36px;
 	padding-bottom: 36px;
+	padding-right: 20px;
 	border-bottom: 2px solid #F1F1F1;
 	padding-left: 60px;
 	color: #5A5A5A;
@@ -282,6 +283,7 @@ body{
 	top: 0;
 	right: 0;
 	bottom: 0;
+	background-color: #FFFFFF;
 }
 #dateLeft li{
 	padding-top: 20px;
@@ -325,8 +327,78 @@ body{
 	display: block;
 	position: absolute;
 	right: -14px;
-	top: 10px;
+	top: 20px;
 	z-index: 3;
+}
+#dateRight .msgDate{
+	margin-top: 0px;
+	width: 100%;
+}
+#dateRight .scroll:after{
+	content: none;
+}
+#center .msgDate:last-of-type{
+	margin-bottom: 0px;
+}
+#dateRight .msgDate .msgTit{
+	width: 100%;
+	height: 62px;
+	color: #83888F;
+	position: relative;
+	font-size: 28px;
+	line-height: 62px;
+	padding-left: 40px;
+	background-color: #DFDFDF;
+	background-repeat: no-repeat;
+	background-position: 30px 30px;	
+}
+#center .msgDate .msgTit:before {
+	content: none;
+}
+#center .msgDate ul{
+	background-color: transparent;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-top: 40px;
+	padding-bottom: 20px;
+	border-right: none;
+	border-left: none;
+}
+#center .msgDate li{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: none;
+	background-position: 22px 16px;
+}
+#center .pqtx {
+	background-color: #FFFFFF;
+}
+#center .cbbsh{
+	background-color: #F2F2F2;
+}
+#center .tit{
+	width: 160px;
+	height: 34px;
+	float: right;
+	font-size: 20px;
+	padding-top: 4px;
+	padding-left: 50px;
+	padding-bottom: 4px;
+	background-repeat: no-repeat;
+	background-size:  20px 20px;
+	background-position: 16px 6px;
+}
+#center .pqtx .tit{
+	border-left: 2px solid #BF5ABB;
+	border-bottom: 2px solid #BF5ABB;
+	color: #BF5ABB;
+	background-image: url('../image/pqtx.png');
+}
+#center .cbbsh .tit{
+	border-left: 2px solid #3DC0AC;
+	border-bottom: 2px solid #3DC0AC;
+	color: #3DC0AC;
+	background-image: url('../image/cbbsh.png');
 }
 
 /* Media queries

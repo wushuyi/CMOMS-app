@@ -1,8 +1,4 @@
 ;(function(app, constructor){
-	var dateNs = {
-		dayNames:["周日","周一","周二","周三","周四","周五","周六"],
-		abbreviatedMonthNames:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-	};
 	var $cache = {};
 	constructor[app] = {
 		myScroll : [],
@@ -48,6 +44,11 @@
 			});
 		},
 		dateInit : function(){
+			var dateNs = {
+				dayNames:["周日","周一","周二","周三","周四","周五","周六"],
+				abbreviatedMonthNames:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+			};
+
 			var self = this;
 			self.myScroll[0] = new IScroll('#dateLeft', { mouseWheel: true, click: true });
 			self.myScroll[1] = new IScroll('#dateRight', { mouseWheel: true, click: true });
@@ -63,11 +64,11 @@
 				year : time.getFullYear(),
 				monthDay : time.setDate(0).getDate()
 			};
-			
+			date.next = $.extend({}, date.now);
 			var getHtml = function (time) {
 				var monthText = dateNs.abbreviatedMonthNames[time.month];
 				var html = '';
-				for(var i = 1 ; i < time.monthDay; i++){
+				for(var i = 1 ; i <= time.monthDay; i++){
 					html = '<li id='+time.year+'-'+(time.month+1)+'-'+i+'><span class="month">'+monthText+'</span><span class="date">'+i+'</span></li>' +html;
 					if(time.year == date.now.year && time.month == date.now.month && i == date.now.date){
 						break;
@@ -75,21 +76,21 @@
 				}
 				return '<ul id="'+time.year+'-'+(time.month+1)+'">'+html+'</ul>';
 			};
-			
-			
-			date.next = $.extend({}, date.now);
-			date.next.month -= 1;
+			var nextDate = function(){
+				date.next.month -= 1;
+				date.next.monthDay = time.setMonth(date.next.month).setDate(0).getDate();
+				return date.next;
+			};
 			var addHtml = function(){
 				if($('#dateLeft ul').last().position().top < 0){
 					if(date.next.month > 0){
-					date.next.month -= 1;
-					$cache.dateLeft.append(getHtml(date.next));
-					self.myScroll[0].refresh();
+						$cache.dateLeft.append(getHtml(nextDate()));
+						self.myScroll[0].refresh();
 					}
 				}
-			}
+			};
 			date.thisId = date.now.year+'-'+(date.now.month+1)+'-'+date.now.date;
-			$cache.dateLeft.html(getHtml(date.now) + getHtml(date.next));
+			$cache.dateLeft.html(getHtml(date.now) + getHtml(nextDate()));
 			$cache.thisId = $('#'+date.thisId);
 			$cache.thisId.addClass('active');
 			self.myScroll[0].refresh();
@@ -99,16 +100,12 @@
 				addHtml();
 			});
 			
-			
 			$cache.dateLeft.on('click', 'li', function(){
 				var $self = $(this);
 				$('li',$cache.dateLeft).removeClass('active');
 				$self.addClass('active');
 				self.myScroll[0].scrollToElement($self.get(0), 1000);
 			});
-			
-			
-			
 		}
 	};
 })('app', this);
