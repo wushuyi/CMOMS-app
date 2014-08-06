@@ -106,6 +106,12 @@
 				$self.addClass('active');
 				self.myScroll[0].scrollToElement($self.get(0), 1000);
 			});
+		},
+		info: function(){
+			$cache.topBox = $('#topBox');
+			$cache.topBox.on('click', '.goback', function(){
+				window.history.go(-1);
+			});
 		}
 	};
 })('app', this);
@@ -115,6 +121,10 @@
 		switch(window.pgName){
 			case 'pubinfo':
 				app.pubInit();
+				break;
+			case 'info':
+				app.pubInit();
+				app.info();
 				break;
 			case 'paiqi':
 				app.pubInit();
