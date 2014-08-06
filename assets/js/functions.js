@@ -113,6 +113,9 @@
 ;(function($){
 	$(document).ready(function (){
 		switch(window.pgName){
+			case 'pubinfo':
+				app.pubInit();
+				break;
 			case 'paiqi':
 				app.pubInit();
 				app.pubNav();

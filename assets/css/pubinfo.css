@@ -37,3 +37,109 @@ body{
 	left: 0;
 	bottom: 0;
 }
+#topBox{
+	width: 100%;
+	height: 80px;
+	position: absolute;
+	top: 0;
+	background-color: #FFFFFF;
+	border-bottom: 1px solid #C8C8C8;
+}
+#topBox li{
+	width: 33.33%;
+	height: 100%;
+	float: left;
+	font-size: 36px;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	position: relative;
+	color: #BBBBBB;
+	cursor: pointer;
+}
+#topBox li:after{
+	height: 30px;
+	width: 2px;
+	content: '';
+	display: block;
+	position: absolute;
+	right: -2px;
+	top: 26px;
+	background-color: #D3D3D5;
+}
+#topBox li:last-of-type:after{
+	content: none;
+}
+#topBox li.active{
+	color: #484848;
+}
+#topBox li.active:before{
+	width: 152px;
+	height: 8px;
+	content: '';
+	position: absolute;
+	background-color: #F0B615;
+	bottom: 0px;
+	left: 36px;
+}
+#center{
+	position: absolute;
+	top: 104px;
+	left: 22px;
+	right: 22px;
+	bottom: 0px;
+	overflow: hidden;
+}
+#center .scroll:after{
+	content: "";
+	display: block;
+	width: 100%;
+	height: 30px;
+}
+#center .mainList li{
+	border-top: 2px solid #DDDDDD;
+	border-right: 2px solid #DDDDDD;
+	border-left: 2px solid #DDDDDD;
+	background-color: #FFFFFF;
+	padding-left: 40px;
+	padding-right: 60px;
+	padding-top: 24px;
+	padding-bottom: 24px;
+	position: relative;
+	cursor: pointer;
+}
+#center .mainList li:last-of-type{
+	border-bottom: 2px solid #DDDDDD;
+}
+#center .mainList h2.title{
+	font-size: 34px;
+	font-weight: bold;
+	color: #595959;
+}
+#center .mainList h3.date{
+	padding-top: 10px;
+	padding-left: 40px;
+	font-size: 28px;
+	color: #909295;
+	background-image: url('../image/clock.png');
+	background-repeat: no-repeat;
+	background-position: 4px 16px;
+	background-size: 22px;
+}
+#center .mainList span.icon{
+	font-size: 34px;
+	font-weight: bold;
+	font-family: "黑体";
+	color: #D7D7D7;
+	position: absolute;
+	top: 50px;
+	right: 32px;
+}
+#center .mainList a.full{
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
