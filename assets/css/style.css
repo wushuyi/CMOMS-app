@@ -1,0 +1,348 @@
+/* A Linux- and Windows-friendly sans-serif font stack: http://prospects.mhurrell.co.uk/post/updating-the-helvetica-font-stack */
+body {font: 13px Helmet, Freesans, sans-serif;}
+
+/* Using local fonts? Check out Font Squirrel's webfont generator: http://www.fontsquirrel.com/tools/webfont-generator */
+
+/* We like off-black for text. */
+body, select, input, textarea {color: #333;}
+
+a {color: #03f;}
+a:hover {color: #69f;}
+
+/* Custom text-selection colors (remove any text shadows: http://twitter.com/miketaylr/status/12228805301) */
+::-moz-selection{background: #fcd700; color: #fff; text-shadow: none;}
+::selection {background: #fcd700; color: #fff; text-shadow: none;} 
+
+/*	j.mp/webkit-tap-highlight-color */
+a:link {-webkit-tap-highlight-color: #fcd700;} 
+
+ins {background-color: #fcd700; color: #000; text-decoration: none;}
+mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: bold;}
+
+/* Mozilla dosen't style place holders by default */
+input:-moz-placeholder { color:#a9a9a9; }
+textarea:-moz-placeholder { color:#a9a9a9; }
+
+/*
+ * main style
+ * -----------------------------*/
+body{
+	width: 640px;
+}
+.wrapper{
+	width: 640px;
+	background-color: #F2F2F2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+}
+#topBox{
+	width: 640px;
+	height: 76px;
+	position: absolute;
+	top: 0px;
+	background-color: #FFFFFF;
+}
+#topBox .selectBox{
+	width: 510px;
+	height: 54px;
+	background-color: #F2F3F4;
+	float: left;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+#topBox .searchValue{
+	width: 410px;
+	height: 100%;
+	border: none;
+	float: left;
+	background-color: #F2F3F4;
+	font-size: 34px;
+	text-indent: 30px;
+}
+#topBox .searchSubmit{
+	width: 100px;
+	height: 100%;
+	float: right;
+	border: none;
+	background-image: url('../image/search.png');
+	background-color: #F2F3F4;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+#topBox .nav{
+	width: 100px;
+	height: 54px;
+	margin-right: 10px;
+	margin-top: 10px;
+	float: right;
+	border-left:2px solid #DEE0E2;
+	position: relative;
+}
+#topBox .nav:before{
+	width: 14px;
+	border-top: 18px solid #83888F;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	content: "";
+	display: block;
+	margin-top: 18px;
+	margin-left: 38px;
+	cursor: pointer;
+	transition: transform linear .2s;
+}
+#topBox .nav.active:before{
+	transform:rotate(180deg);
+}
+#topBox .navPop{
+	position: absolute;
+	top: 66px;
+	right: 0px;
+	z-index: 9999;
+	display: none;
+}
+#topBox .navPop:before{
+	width: 14px;
+	border-bottom: 10px solid #848484;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	content: "";
+	margin-left: 174px;
+	display: block;
+	cursor: pointer;
+}
+#topBox .navPop li{
+	width: 222px;
+	height: 80px;
+	padding-left: 100px;
+	padding-top: 22px;
+	padding-bottom: 22px;
+	background-color: #848484;
+	border-bottom: 2px solid #A9A9A9;
+	cursor: pointer;
+	font-size: 32px;
+	color: #FFFFFF;
+	background-repeat: no-repeat;
+	background-position: 34px 20px;
+	background-size: 40px;
+}
+#topBox .navPop li.tit_date{
+	background-image: url('../image/tit_date.png');
+}
+#topBox .navPop li.tit_choubei{
+	background-image: url('../image/tit_choubei.png');
+}
+#topBox .navPop li.tit_baobei{
+	background-image: url('../image/tit_baobei.png');
+}
+#topBox .navPop li.tit_other{
+	background-image: url('../image/tit_other.png');
+}
+#topBox .navPop li:first-of-type{
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+}
+#topBox .navPop li:last-of-type{
+	border: none;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+#center{
+	width: 100%;
+	position: absolute;
+	top: 76px;
+	bottom: 0px;
+	overflow: hidden;
+}
+#center .scroll:after{
+	content: "";
+	display: block;
+	width: 100%;
+	height: 30px;
+}
+#center .msg{
+	width: 600px;
+	min-height: 10px;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#center .msg:last-of-type{
+	margin-bottom: 30px;
+}
+#center .msgTit{
+	width: 100%;
+	height: 94px;
+	color: #FFFFFF;
+	position: relative;
+	font-size: 50px;
+	line-height: 94px;
+	padding-left: 100px;
+	background-repeat: no-repeat;
+	background-position: 30px 30px;
+}
+#center .msgTit:before{
+	border-bottom: 10px solid #FFFFFF;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	content: "";
+	display: block;
+	position: absolute;
+	bottom: 0px;
+	left: 28px;
+}
+#center .msgOther .msgTit{
+	background-color: #5364B9;
+	background-image: url('../image/tit_other.png');	
+}
+#center .msgChoubei .msgTit{
+	background-color: #3DC0AC;
+	background-image: url('../image/tit_choubei.png');	
+}
+#center .msgBaobei .msgTit{
+	background-color: #3DA4D1;
+	background-image: url('../image/tit_baobei.png');	
+}
+#center .msgPaiqi .msgTit{
+	background-color: #BF5ABB;
+	background-image: url('../image/tit_date.png');	
+}
+#center .msg ul{
+	background-color: #FFFFFF;
+	border-left: 2px solid #E3E3E3;
+	border-right: 2px solid #E3E3E3;
+	padding-bottom: 20px;
+	padding-left: 20px;
+}
+#center .msgOther ul{
+	border-bottom: 4px solid #5364B9;
+}
+#center .msgChoubei ul{
+	border-bottom: 4px solid #3DC0AC;
+}
+#center .msgBaobei ul{
+	border-bottom: 4px solid #3DA4D1;
+}
+#center .msgPaiqi ul{
+	border-bottom: 4px solid #BF5ABB;
+}
+#center .msg li{
+	font-size: 30px;
+	padding-top: 36px;
+	padding-bottom: 36px;
+	border-bottom: 2px solid #F1F1F1;
+	padding-left: 60px;
+	color: #5A5A5A;
+	background-position: 18px 42px;
+	background-repeat: no-repeat;
+	background-size: 24px 24px;
+}
+#center .msg li:last-of-type{
+	border-bottom: none;
+}
+#center .msg li.light{
+	color: #8D8D8D;
+}
+#center .msg li.iconPen{
+	background-image: url('../image/pen.png');
+}
+#center .msg li.iconStar{
+	background-image: url('../image/star.png');
+}
+#center .msg li.iconStats{
+	background-image: url('../image/stats.png');
+}
+#center .msg li.iconClock{
+	background-image: url('../image/clock.png');
+}
+#center .msg li.iconAddr{
+	background-image: url('../image/addr.png');
+	background-size: 18px 28px;
+}
+#center .msg li.iconLine{
+	background-image: url('../image/line.png');
+}
+
+#dateLeft{
+	width: 120px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 2;
+}
+#dateLeft .scroll:after{
+	height: 2px;
+}
+#dateRight{
+	width: 520px;
+	border-left: 2px solid #E3E3E3;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+#dateLeft li{
+	padding-top: 20px;
+	padding-left: 30px;
+	padding-bottom: 24px;
+	padding-right: 30px;
+	border-top: 1px solid #DEDEDE;
+	border-bottom: 1px solid #DEDEDE;
+	cursor: pointer;
+	position: relative;
+}
+#dateLeft .month{
+	width: 60px;
+	font-size: 28px;
+	float: left;
+	color: #CCCDCF;
+	display: block;
+	text-align: center;
+}
+#dateLeft .date{
+	width: 60px;
+	font-size: 60px;
+	line-height: 50px;
+	font-weight: bold;
+	color: #CCCDCF;
+	display: block;
+	text-align: center;
+}
+#dateLeft li.active{
+	background-color: #FFFFFF;
+	cursor: default;
+}
+#dateLeft li.active .month, #dateLeft li.active .date{
+	color: #F2B516;
+}
+#dateLeft li.active:after{
+	border-left: 18px solid #FFFFFF;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	content: "";
+	display: block;
+	position: absolute;
+	right: -14px;
+	top: 10px;
+	z-index: 3;
+}
+
+/* Media queries
+-------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 480px) {
+
+
+}
+
+
+
+/* Print styles
+-------------------------------------------------------------------------------*/
+@media print {
+
+
+
+}
