@@ -90,7 +90,7 @@
 					'</div>';
 			var self = this;
 			self.myScroll[0] = new IScroll('#dateLeft', { probeType: 3, deceleration:0.006,mouseWheel: true, click: true });
-			self.myScroll[1] = new IScroll('#dateRight', { probeType: 3, deceleration:0.004, mouseWheel: true, click: true });
+			self.myScroll[1] = new IScroll('#dateRight', { probeType: 3, deceleration:0.003, mouseWheel: true, click: true });
 			document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 		
 			$cache.dateLeft = $('#dateLeft .scroll'), $cache.dateRight = $('#dateRight .scroll');
@@ -220,7 +220,13 @@
 				var topRightT = topRightBox.position().top;
 				var rightPercent = (topRightH+topRightT)/topRightH;	
 				
+				var msgTit = $('.msgTit' ,topRightBox);
+				
 				self.myScroll[0].scrollTo(0, -topLeftOffT + (topLeftBoxH * (rightPercent - 1 )) , 0);
+				
+				
+				
+				msgTit.css('top', -topRightT);
 				if(rightPercent<0){
 					var d = new XDate(nowId, true);
 					d.setDate(d.getDate()+1);
