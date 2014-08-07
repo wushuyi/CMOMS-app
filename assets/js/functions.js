@@ -107,6 +107,15 @@
 				self.myScroll[0].scrollToElement($self.get(0), 1000);
 			});
 		},
+		pubinfo: function(){
+			$cache.topBox = $('#topNav');
+			$cache.navli = $('.nav li' ,$cache.topBox);
+			$cache.navli.on('click', function(){
+				var $self = $(this);
+				$cache.navli.removeClass('active');
+				$self.addClass('active');
+			});
+		},
 		info: function(){
 			$cache.topBox = $('#topBox');
 			$cache.topBox.on('click', '.goback', function(){
@@ -121,6 +130,7 @@
 		switch(window.pgName){
 			case 'pubinfo':
 				app.pubInit();
+				app.pubinfo();
 				break;
 			case 'info':
 				app.pubInit();
