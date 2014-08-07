@@ -319,17 +319,6 @@ body{
 #dateLeft li.active .month, #dateLeft li.active .date{
 	color: #F2B516;
 }
-#dateLeft li.active:after{
-	border-left: 18px solid #FFFFFF;
-	border-top: 10px solid transparent;
-	border-bottom: 10px solid transparent;
-	content: "";
-	display: block;
-	position: absolute;
-	right: -14px;
-	top: 20px;
-	z-index: 3;
-}
 #dateRight .msgDate{
 	margin-top: 0px;
 	width: 100%;
@@ -351,6 +340,17 @@ body{
 	background-color: #DFDFDF;
 	background-repeat: no-repeat;
 	background-position: 30px 30px;	
+}
+#dateRight .msgDate.active .msgTit:after{
+	border-left: 18px solid #FFFFFF;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 20px;
+	z-index: 3;
 }
 #center .msgDate .msgTit:before {
 	content: none;
@@ -374,7 +374,7 @@ body{
 	background-color: #FFFFFF;
 }
 #center .cbbsh{
-	background-color: #F2F2F2;
+	border-top: 2px solid #F2F2F2;
 }
 #center .tit{
 	width: 160px;
