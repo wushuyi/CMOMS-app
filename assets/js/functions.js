@@ -89,7 +89,7 @@
 						'</div>'+
 					'</div>';
 			var self = this;
-			self.myScroll[0] = new IScroll('#dateLeft', { probeType: 3, deceleration:0.004,mouseWheel: true, click: true });
+			self.myScroll[0] = new IScroll('#dateLeft', { probeType: 3, deceleration:0.006,mouseWheel: true, click: true });
 			self.myScroll[1] = new IScroll('#dateRight', { probeType: 3, deceleration:0.004, mouseWheel: true, click: true });
 			document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 		
@@ -244,6 +244,9 @@
 				}
 			});
 			$('li', $cache.dateLeft).click(function(){
+				if(scrollLock){
+					return false;
+				}
 				var $self = $(this);
 				scrollLock = true;
 				setTimeout(function(){
